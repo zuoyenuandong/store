@@ -9,13 +9,21 @@
     <description>总项目</description>
     <packaging>pom</packaging>
 
+
+
     <modules>
         <module>store-product</module>
         <module>store-member</module>
         <module>store-order</module>
         <module>store-ware</module>
         <module>store-coupon</module>
+        <module>renren-fast</module>
+        <module>renren-generator</module>
+        <module>store-common</module>
+        <module>store-gateway</module>
     </modules>
+
+
 
 
 

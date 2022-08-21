@@ -1,0 +1,12 @@
+server:
+  port: 8160
+
+spring:
+  application:
+    name: store-gateway
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 192.168.0.104:8848
+    inetutils:
+      ignored-interfaces: 'VMware Virtual Ethernet Adapter for VMnet1,VMware Virtual Ethernet Adapter for VMnet8'

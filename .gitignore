@@ -92,3 +92,9 @@ buildNumber.properties
 
 **/test/
 
+dockerfile
+
+.vm
+
+.ttf
+
