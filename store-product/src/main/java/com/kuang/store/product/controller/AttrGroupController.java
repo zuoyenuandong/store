@@ -4,6 +4,7 @@ import com.kuang.common.utils.PageUtils;
 import com.kuang.common.utils.R;
 import com.kuang.store.product.entity.AttrGroupEntity;
 import com.kuang.store.product.service.AttrGroupService;
+import com.kuang.store.product.service.CategoryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -25,6 +26,9 @@ public class AttrGroupController {
     @Autowired
     private AttrGroupService attrGroupService;
 
+    @Autowired
+    private CategoryService categoryService;
+
     /**
      * 列表
      */
@@ -35,7 +39,6 @@ public class AttrGroupController {
 //        PageUtils page = attrGroupService.queryPage(params);
 
         PageUtils page = attrGroupService.queryPage(params,catelogId);
-
         return R.ok().put("page", page);
     }
 
@@ -46,7 +49,9 @@ public class AttrGroupController {
     @RequestMapping("/info/{attrGroupId}")
     public R info(@PathVariable("attrGroupId") Long attrGroupId){
 		AttrGroupEntity attrGroup = attrGroupService.getById(attrGroupId);
-
+        Long catelogId = attrGroup.getCatelogId();
+        Long[] path = categoryService.findCatelogPath(catelogId);
+        attrGroup.setCatelogPath(path);
         return R.ok().put("attrGroup", attrGroup);
     }
 
