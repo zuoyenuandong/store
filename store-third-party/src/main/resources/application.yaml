@@ -1,0 +1,16 @@
+server:
+  port: 8180
+
+spring:
+  application:
+    name: store-third-party
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 192.168.0.104:8848
+    alicloud:
+      access-key: LTAI5tQYgPLWkK1x9C3whLB2
+      secret-key: UctJ90vZ0YYgdXi2N84fUYLRWDNTsC
+      oss:
+        endpoint: oss-cn-hangzhou.aliyuncs.com
+        bucket: kuang-bucket02
