@@ -2,14 +2,13 @@ package com.kuang.store.product.entity;
 
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
+import lombok.Data;
 
 import java.io.Serializable;
-import java.util.Date;
-import lombok.Data;
 
 /**
  * 商品属性
- * 
+ *
  * @author kuang
  * @email 1400584782@qq.com
  * @date 2022-08-20 15:42:51
@@ -32,6 +31,8 @@ public class AttrEntity implements Serializable {
 	 * 是否需要检索[0-不需要，1-需要]
 	 */
 	private Integer searchType;
+
+
 	/**
 	 * 值类型[0-为单个值，1-可以选择多个值]
 	 */
@@ -60,5 +61,7 @@ public class AttrEntity implements Serializable {
 	 * 快速展示【是否展示在介绍上；0-否 1-是】，在sku中仍然可以调整
 	 */
 	private Integer showDesc;
+
+
 
 }

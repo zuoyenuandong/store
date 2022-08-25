@@ -9,7 +9,7 @@ import java.io.Serializable;
 
 /**
  * 属性分组
- * 
+ *
  * @author kuang
  * @email 1400584782@qq.com
  * @date 2022-08-20 15:42:51

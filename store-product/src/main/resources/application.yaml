@@ -13,6 +13,8 @@ spring:
     nacos:
       discovery:
         server-addr: 192.168.0.104:8848
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
 
 mybatis-plus:
   configuration:
@@ -24,3 +26,9 @@ mybatis-plus:
       id-type: auto
       logic-delete-value: 1
       logic-not-delete-value: 0
+
+store:
+  thread:
+    coreSize: 20
+    maxSize: 200
+    keepAliveTime: 10

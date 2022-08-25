@@ -12,7 +12,7 @@ import java.util.List;
 
 /**
  * 商品三级分类
- * 
+ *
  * @author kuang
  * @email 1400584782@qq.com
  * @date 2022-08-20 15:42:51
@@ -61,6 +61,9 @@ public class CategoryEntity implements Serializable {
 	 */
 	private Integer productCount;
 
+	/**
+	 * 所有子分类
+	 */
 	@JsonInclude(JsonInclude.Include.NON_EMPTY)
 	@TableField(exist = false)
 	private List<CategoryEntity> children;

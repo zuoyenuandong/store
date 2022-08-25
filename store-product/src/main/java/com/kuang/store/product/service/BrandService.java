@@ -1,5 +1,6 @@
 package com.kuang.store.product.service;
 
+
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.kuang.common.utils.PageUtils;
 import com.kuang.store.product.entity.BrandEntity;
@@ -16,5 +17,7 @@ import java.util.Map;
 public interface BrandService extends IService<BrandEntity> {
 
     PageUtils queryPage(Map<String, Object> params);
+
+    void updateDetail(BrandEntity brand);
 }
 

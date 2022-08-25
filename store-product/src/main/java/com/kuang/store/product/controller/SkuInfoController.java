@@ -1,25 +1,21 @@
 package com.kuang.store.product.controller;
 
-import java.util.Arrays;
-import java.util.Map;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
-
-import com.kuang.store.product.entity.SkuInfoEntity;
-import com.kuang.store.product.service.SkuInfoService;
 import com.kuang.common.utils.PageUtils;
 import com.kuang.common.utils.R;
+import com.kuang.store.product.entity.SkuInfoEntity;
+import com.kuang.store.product.service.SkuInfoService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
+
+import java.math.BigDecimal;
+import java.util.Arrays;
+import java.util.Map;
 
 
 
 /**
  * sku信息
- *
  * @author kuang
  * @email 1400584782@qq.com
  * @date 2022-08-20 15:42:51
@@ -27,15 +23,34 @@ import com.kuang.common.utils.R;
 @RestController
 @RequestMapping("product/skuinfo")
 public class SkuInfoController {
+
     @Autowired
     private SkuInfoService skuInfoService;
+
+    /**
+     * 根据skuId查询当前商品的价格
+     * @param skuId
+     * @return
+     */
+    @GetMapping(value = "/{skuId}/price")
+    public BigDecimal getPrice(@PathVariable("skuId") Long skuId) {
+
+        //获取当前商品的信息
+        SkuInfoEntity skuInfo = skuInfoService.getById(skuId);
+
+        //获取商品的价格
+        BigDecimal price = skuInfo.getPrice();
+
+        return price;
+    }
 
     /**
      * 列表
      */
     @RequestMapping("/list")
+    //@RequiresPermissions("product:skuinfo:list")
     public R list(@RequestParam Map<String, Object> params){
-        PageUtils page = skuInfoService.queryPage(params);
+        PageUtils page = skuInfoService.queryPageCondition(params);
 
         return R.ok().put("page", page);
     }
@@ -45,6 +60,7 @@ public class SkuInfoController {
      * 信息
      */
     @RequestMapping("/info/{skuId}")
+    //@RequiresPermissions("product:skuinfo:info")
     public R info(@PathVariable("skuId") Long skuId){
 		SkuInfoEntity skuInfo = skuInfoService.getById(skuId);
 
@@ -55,6 +71,7 @@ public class SkuInfoController {
      * 保存
      */
     @RequestMapping("/save")
+    //@RequiresPermissions("product:skuinfo:save")
     public R save(@RequestBody SkuInfoEntity skuInfo){
 		skuInfoService.save(skuInfo);
 
@@ -65,6 +82,7 @@ public class SkuInfoController {
      * 修改
      */
     @RequestMapping("/update")
+    //@RequiresPermissions("product:skuinfo:update")
     public R update(@RequestBody SkuInfoEntity skuInfo){
 		skuInfoService.updateById(skuInfo);
 
@@ -75,6 +93,7 @@ public class SkuInfoController {
      * 删除
      */
     @RequestMapping("/delete")
+    //@RequiresPermissions("product:skuinfo:delete")
     public R delete(@RequestBody Long[] skuIds){
 		skuInfoService.removeByIds(Arrays.asList(skuIds));
 

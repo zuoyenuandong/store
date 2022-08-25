@@ -1,19 +1,17 @@
 package com.kuang.store.ware.controller;
 
-import java.util.Arrays;
-import java.util.Map;
-
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
-
-import com.kuang.store.ware.entity.PurchaseEntity;
-import com.kuang.store.ware.service.PurchaseService;
 import com.kuang.common.utils.PageUtils;
 import com.kuang.common.utils.R;
+import com.kuang.store.ware.entity.PurchaseEntity;
+import com.kuang.store.ware.service.PurchaseService;
+import com.kuang.store.ware.vo.MergeVo;
+import com.kuang.store.ware.vo.PurchaseDoneVo;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.Arrays;
+import java.util.List;
+import java.util.Map;
 
 
 
@@ -39,6 +37,12 @@ public class PurchaseController {
 
         return R.ok().put("page", page);
     }
+    @GetMapping(value = "/unreceive/list")
+    public R unreceiveList(@RequestParam Map<String, Object> params){
+        PageUtils page = purchaseService.queryPageUnreceive(params);
+
+        return R.ok().put("page", page);
+    }
 
 
     /**
@@ -57,6 +61,27 @@ public class PurchaseController {
     @RequestMapping("/save")
     public R save(@RequestBody PurchaseEntity purchase){
 		purchaseService.save(purchase);
+
+        return R.ok();
+    }
+    @PostMapping(value = "/merge")
+    public R merge(@RequestBody MergeVo mergeVo) {
+
+        purchaseService.mergePurchase(mergeVo);
+
+        return R.ok();
+    }
+    @PostMapping(value = "/received")
+    public R received(@RequestBody List<Long> ids) {
+
+        purchaseService.received(ids);
+
+        return R.ok();
+    }
+    @PostMapping(value = "/done")
+    public R finish(@RequestBody PurchaseDoneVo doneVo) {
+
+        purchaseService.done(doneVo);
 
         return R.ok();
     }

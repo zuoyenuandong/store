@@ -12,7 +12,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 @Configuration
 @EnableTransactionManagement        //开启使用
 @MapperScan("com.kuang.store.product.dao")
-class MyBatisConfig {
+class MybatisConfig {
 
     //分页插件
     @Bean

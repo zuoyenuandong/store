@@ -2,14 +2,13 @@ package com.kuang.store.product.entity;
 
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
+import lombok.Data;
 
 import java.io.Serializable;
-import java.util.Date;
-import lombok.Data;
 
 /**
  * 属性&属性分组关联
- * 
+ *
  * @author kuang
  * @email 1400584782@qq.com
  * @date 2022-08-20 15:42:51

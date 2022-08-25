@@ -2,14 +2,13 @@ package com.kuang.store.product.entity;
 
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
+import lombok.Data;
 
 import java.io.Serializable;
-import java.util.Date;
-import lombok.Data;
 
 /**
  * 品牌
- * 
+ *
  * @author kuang
  * @email 1400584782@qq.com
  * @date 2022-08-20 15:42:51
@@ -27,10 +26,12 @@ public class BrandEntity implements Serializable {
 	/**
 	 * 品牌名
 	 */
+
 	private String name;
 	/**
 	 * 品牌logo地址
 	 */
+
 	private String logo;
 	/**
 	 * 介绍
@@ -39,14 +40,18 @@ public class BrandEntity implements Serializable {
 	/**
 	 * 显示状态[0-不显示；1-显示]
 	 */
+//	@Pattern()
+
 	private Integer showStatus;
 	/**
 	 * 检索首字母
 	 */
+
 	private String firstLetter;
 	/**
 	 * 排序
 	 */
+
 	private Integer sort;
 
 }

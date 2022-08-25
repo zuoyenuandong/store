@@ -25,7 +25,11 @@ public class R extends HashMap<String, Object> {
 		put("code", 0);
 		put("msg", "success");
 	}
-	
+	public R setData(Object data) {
+		put("data",data);
+		return this;
+	}
+
 	public static R error() {
 		return error(HttpStatus.SC_INTERNAL_SERVER_ERROR, "未知异常，请联系管理员");
 	}
@@ -61,4 +65,10 @@ public class R extends HashMap<String, Object> {
 		super.put(key, value);
 		return this;
 	}
+
+	public Integer getCode() {
+
+		return (Integer) this.get("code");
+	}
+
 }

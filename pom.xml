@@ -21,6 +21,7 @@
         <module>renren-generator</module>
         <module>store-common</module>
         <module>store-gateway</module>
+        <module>store-search</module>
     </modules>
 
 
