@@ -1,7 +1,0 @@
-spring:
-  cloud:
-    nacos:
-      config:
-        server-addr: 192.168.0.104:8848
-        file-extension: yaml
-        namespace: 96e0dcc5-4608-4f06-ab11-40ab9a615943

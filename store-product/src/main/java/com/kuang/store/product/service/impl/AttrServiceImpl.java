@@ -93,7 +93,7 @@ public class AttrServiceImpl extends ServiceImpl<AttrDao, AttrEntity> implements
         if (!StringUtils.isEmpty(key)) {
             //attr_id attr_name
             queryWrapper.and((wrapper) -> {
-               wrapper.eq("attr_id",key).or().like("attr_name",key);
+                wrapper.eq("attr_id",key).or().like("attr_name",key);
             });
         }
 
@@ -104,6 +104,7 @@ public class AttrServiceImpl extends ServiceImpl<AttrDao, AttrEntity> implements
 
         PageUtils pageUtils = new PageUtils(page);
         List<AttrEntity> records = page.getRecords();
+
 
         List<AttrRespVo> respVos = records.stream().map((attrEntity) -> {
             AttrRespVo attrRespVo = new AttrRespVo();

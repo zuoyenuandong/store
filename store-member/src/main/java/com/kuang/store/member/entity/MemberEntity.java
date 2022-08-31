@@ -2,18 +2,11 @@ package com.kuang.store.member.entity;
 
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
+import lombok.Data;
 
 import java.io.Serializable;
 import java.util.Date;
-import lombok.Data;
 
-/**
- * 会员
- * 
- * @author kuang
- * @email 1400584782@qq.com
- * @date 2022-08-20 23:01:54
- */
 @Data
 @TableName("ums_member")
 public class MemberEntity implements Serializable {
@@ -92,5 +85,20 @@ public class MemberEntity implements Serializable {
 	 * 注册时间
 	 */
 	private Date createTime;
+
+	/**
+	 * 社交登录UID
+	 */
+	private String socialUid;
+
+	/**
+	 * 社交登录TOKEN
+	 */
+	private String accessToken;
+
+	/**
+	 * 社交登录过期时间
+	 */
+	private long expiresIn;
 
 }

@@ -7,7 +7,7 @@ spring:
   cloud:
     nacos:
       discovery:
-        server-addr: 192.168.0.104:8848
+        server-addr: 127.0.0.1:8848
     inetutils:
       ignored-interfaces: 'VMware Virtual Ethernet Adapter for VMnet1,VMware Virtual Ethernet Adapter for VMnet8'
     gateway:
@@ -62,3 +62,17 @@ spring:
           filters:
             - RewritePath=/api/(?<segment>.*),/renren-fast/$\{segment}
 
+        - id: store_index_route
+          uri: lb://store-product
+          predicates:
+            - Host=store.com,item.com
+
+        - id: store_search_route
+          uri: lb://store-search
+          predicates:
+            - Host=search.store.com
+
+        - id: store_auth_route
+          uri: lb://store-auth
+          predicates:
+            - Host=auth.store.com

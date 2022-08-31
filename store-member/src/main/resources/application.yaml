@@ -6,13 +6,16 @@ spring:
     name: store-member
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://192.168.0.3:3306/store_ums?useSSL=false&useUnicode=true&characterEncoding=utf-8&serverTimezone=UTC
+    url: jdbc:mysql://192.168.80.3:3306/store_ums?useSSL=false&useUnicode=true&characterEncoding=utf-8&serverTimezone=UTC
     username: root
     password: 123456
   cloud:
     nacos:
       discovery:
-        server-addr: 192.168.0.104:8848
+        server-addr: 127.0.0.1:8848
+  redis:
+    host: 192.168.80.3
+    port: 6379
 
 
 mybatis-plus:

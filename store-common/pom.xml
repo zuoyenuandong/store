@@ -12,6 +12,11 @@
     <artifactId>store-common</artifactId>
 
     <dependencies>
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>fastjson</artifactId>
+            <version>1.2.79</version>
+        </dependency>
 
         <dependency>
             <groupId>org.hibernate</groupId>
